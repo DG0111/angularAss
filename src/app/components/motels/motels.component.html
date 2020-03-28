@@ -1,0 +1,25 @@
+<div>
+  <div class="card-header my-2 row justify-content-between">
+    <h3 class="col-2">LIST MOTELS</h3>
+    <a class="col-2 btn btn-success" href="#">ADD MOTELS</a>
+  </div>
+  <div class="row px-4">
+    <div class="col-sm-3" *ngFor="let value of motels">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" [src]="value.image" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{value.name}}</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Owner : {{value.owner}}</li>
+          <li class="list-group-item">address : {{value.address}}</li>
+          <li *ngIf="value.active" class="list-group-item text-success">Available rooms</li>
+          <li *ngIf="!value.active" class="list-group-item text-danger">No rooms</li>
+        </ul>
+          <button class="btn btn-success mb-1">DETAIL</button>
+          <button class="btn btn-warning mb-1">EDIT</button>
+          <button (click)="destroyMotel(value.id)" class="btn btn-danger mb-1">REMOVE</button>
+      </div>
+    </div>
+  </div>
+</div>
